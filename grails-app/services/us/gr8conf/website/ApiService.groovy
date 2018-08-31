@@ -64,7 +64,6 @@ class ApiService {
                 def room = track.name
                 track.slots.each { slot ->
                     List speaker = slot.speakers
-
                     Map jsonMap = [:]
                     jsonMap.start = "${agendaDay}T${slot.start}"
                     jsonMap.end = "${agendaDay}T${slot.end}"
@@ -79,7 +78,6 @@ class ApiService {
                     if (room == "Object Partners HQ") {
                         jsonMap.resourceId = "Schulze Hall Auditorium"
                         jsonMap.className = "allColumns"
-
                     }
 
                     if (!track.breaks) {
@@ -105,7 +103,7 @@ class ApiService {
         if (tag) {
             data = [data.find { it.tag == tag } ?: EMPTY_LIST]
         }
-        data
+        return data
     }
 
     private List getData(String type) {

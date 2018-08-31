@@ -19,7 +19,6 @@ class DataController {
     def agenda(String day) {
         List agenda = apiService.getAgenda(day)
         String startDate = grailsApplication.config.gr8conf.dates.start
-
         respond agenda, [model: [agenda: agenda, startDate: startDate]]
     }
 
